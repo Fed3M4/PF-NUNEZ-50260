@@ -1,0 +1,9 @@
+<div *ngIf="userFinded">
+  <h3>{{userFinded.role}}: {{ userFinded | fullName }}</h3>
+  <div>
+    <h4>ID: {{ userFinded.id }}</h4>
+    <p>Teléfono: {{ userFinded.phone }}</p>
+    <p>Cursos inscriptos: {{userFinded.curso}}</p>
+    <p>Email: {{userFinded.email}}</p>
+  </div>
+</div>

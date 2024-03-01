@@ -1,0 +1,67 @@
+<div class="modal-content d-flex justify-content-center align-items-center p-5">
+  <form
+    [formGroup]="studentForm"
+    class="container text-center"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="firstName" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Apellido</mat-label>
+          <input matInput formControlName="lastName" />
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Teléfono</mat-label>
+          <input matInput formControlName="phone" />
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Elegí el curso...</mat-label>
+          <mat-select formControlName="curso" >
+            <mat-option *ngFor="let curso of cursos" value="option">{{curso.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div mat-dialog-actions>
+      <button type="submit" mat-raised-button color="primary">Registrar</button>
+      <button mat-raised-button color="warn" (click)="closeModal()">
+        Cerrar
+      </button>
+    </div>
+  </form>
+</div>

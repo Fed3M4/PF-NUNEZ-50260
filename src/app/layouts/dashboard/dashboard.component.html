@@ -1,0 +1,89 @@
+<mat-drawer-container class="example-container" autosize style="height: 100vh">
+  <mat-drawer #drawer class="dashboard-sidebar" mode="side">
+    <a routerLink="home" style="background-color: black"
+      ><img
+        src="../../../assets/logocoderpng.png"
+        style="height: 64px; width: 100%"
+        alt=""
+    /></a>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        #homeLink="routerLinkActive"
+        routerLinkActive
+        [activated]="homeLink.isActive"
+        appTitulosTamanio
+        routerLink="home"
+        >Inicio</a
+      >
+      <a
+        mat-list-item appTitulosTamanio
+        class="nav-link"
+        routerLink="nosotros"
+        #nosotrosLink="routerLinkActive"
+        routerLinkActive
+        [activated]="nosotrosLink.isActive"
+        >Nosotros</a
+      >
+      <a
+        mat-list-item
+        appTitulosTamanio
+        class="nav-link"
+        routerLink="alumnos"
+        #alumnosLink="routerLinkActive"
+        routerLinkActive
+        [activated]="alumnosLink.isActive"
+        >Alumnos</a
+      >
+      <a
+        mat-list-item
+        appTitulosTamanio
+        class="nav-link"
+        routerLink="profesores"
+        #profesoresLink="routerLinkActive"
+        routerLinkActive
+        [activated]="profesoresLink.isActive"
+        >Profesores</a
+      >
+      <a
+        mat-list-item appTitulosTamanio class="nav-link"
+        routerLink="cursos"
+        #cursosLink="routerLinkActive"
+        routerLinkActive
+        [activated]="cursosLink.isActive"
+        >Cursos</a
+      >
+      <a
+      appTitulosTamanio
+      (click)="logout()"
+      mat-list-item
+      >Cerrar sesion</a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar color="primary" style="background-color: black">
+      <button
+        mat-icon-button
+        class="example-icon"
+        aria-label="Example icon-button with menu icon"
+        (click)="drawer.toggle()"
+      >
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span appTitulosTamanio>Proyecto Final - Lista de Alumnos</span>
+      <span class="example-spacer"></span>
+      <div *ngIf="authuser$ | async; let user">
+        <h2 appTitulosTamanio>¡Bienvenido {{ user?.firstName }}!</h2>
+      </div>
+    </mat-toolbar>
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="app-loading" *ngIf="isLoading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="p-5 w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

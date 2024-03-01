@@ -1,0 +1,171 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Leandro",
+      "lastName": "Ramis",
+      "phone": 1138459874,
+      "email": "leandro@gmail.com",
+      "password": "racing2023",
+      "isActive": true,
+      "curso": "Angular",
+      "role": "Alumno",
+      "token": "lsakjdlks122312"
+    },
+    {
+      "id": "2",
+      "firstName": "Alejandro",
+      "lastName": "Tarutani",
+      "phone": 1173959385,
+      "email": "atarutani@gmail.com",
+      "password": "mateo2022",
+      "isActive": true,
+      "curso": "ReactJS",
+      "role": "Alumno",
+      "token": "lsakjdlks1as312"
+    },
+    {
+      "id": "4",
+      "firstName": "Test",
+      "lastName": "Eando",
+      "phone": 999999999,
+      "email": "test@gmail.com",
+      "password": "12345678",
+      "isActive": true,
+      "curso": "ReactJS",
+      "role": "ADMIN",
+      "token": "lsa78dlks122312"
+    },
+    {
+      "id": "5",
+      "firstName": "Laura",
+      "lastName": "Tarangana",
+      "phone": 1138459874,
+      "email": "panceres@gmail.com",
+      "password": "racing2023",
+      "curso": "Angular",
+      "isActive": true,
+      "role": "Profesor",
+      "token": "lsakjdlks1223po"
+    },
+    {
+      "id": "6",
+      "firstName": "Roberto",
+      "lastName": "Carlos",
+      "phone": 1173959385,
+      "email": "roblos@gmail.com",
+      "password": "mateo2022",
+      "curso": "ReactJS",
+      "isActive": true,
+      "role": "Profesor",
+      "token": "meakjdlks1223r2"
+    },
+    {
+      "id": "7",
+      "firstName": "Ricardo",
+      "lastName": "Fortunato",
+      "phone": 1165290665,
+      "email": "rfort@gmail.com",
+      "password": "juegosonline",
+      "curso": "Matemáticas II",
+      "isActive": false,
+      "role": "Profesor",
+      "token": "lsppjdlk3a22312"
+    },
+    {
+      "id": "8",
+      "firstName": "Andrea",
+      "lastName": "Defrance",
+      "email": "andre@gmail.com",
+      "phone": "12345678",
+      "password": "carpincho",
+      "curso": "option",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "02kdjdlks1222f2"
+    },
+    {
+      "id": "b311",
+      "firstName": "Federico",
+      "lastName": "Nuñez",
+      "email": "fefe@gmail.com",
+      "phone": "132115461",
+      "password": "fefe1234",
+      "curso": "option",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "l45sjd1ks122sl4"
+    },
+    {
+      "id": "b0ff",
+      "firstName": "Raul",
+      "lastName": "Alvarez",
+      "email": "simba@gmail.com",
+      "phone": "123812398",
+      "password": "simba9384934",
+      "curso": "option",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "POzykdrYUA3fDZZ"
+    },
+    {
+      "id": "86d5",
+      "firstName": "Ruben",
+      "lastName": "Lafuente",
+      "email": "ruben@gmail.com",
+      "phone": "132132131",
+      "password": "dmalkdalk",
+      "curso": "option",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "5Nu4DA15HrupMVs"
+    },
+    {
+      "id": "1555",
+      "firstName": "Gabriel",
+      "lastName": "Guzman",
+      "email": "gg@gmail.com",
+      "phone": "13123123",
+      "password": "kdaljdkjdljak",
+      "curso": "option",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "zd4WFix04f62w4y"
+    },
+    {
+      "id": "dada",
+      "firstName": "Iana",
+      "lastName": "Nuñez",
+      "email": "iana@gmail.com",
+      "phone": "7638762163821",
+      "password": "dkjashdkjahskdh",
+      "curso": "option",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "KLZFYCFME9cEp5w"
+    }
+  ],
+  "courses": [
+    {
+      "id": "2030",
+      "name": "Angular",
+      "description": "'Angular es un Framework de JavaScript de código abierto escrito en TypeScript. Su objetivo principal es desarrollar aplicaciones de una sola página. Google se encarga del mantenimiento y constantes actualizaciones de mejoras para este framework.'",
+      "img": "../../../assets/angular.png",
+      "alumnosInscriptos": []
+    },
+    {
+      "id": "2040",
+      "name": "'ReactJS'",
+      "description": "React (también llamada React. js o ReactJS) es una librería Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página. Es mantenido por Facebook y la comunidad de software libre.",
+      "img": "../../../assets/react-javascript-js-framework-facebook-icon-1024x911-dnspa9ed.png",
+      "alumnosInscriptos": []
+    },
+    {
+      "id": "3030",
+      "name": "'Matemáticas II'",
+      "description": "'Se utiliza para resolver problemas, detectar patrones y comprobar hipótesis en diferentes áreas, desde la ingeniería hasta la medicina. De hecho, el desarrollo tecnológico actual sería inconcebible sin los aportes de las Matemáticas'",
+      "img": "../../../assets/png-transparent-mathematics-mathematical-notation-symbol-number-computer-icons-mathematics-text-orange-logo.png",
+      "alumnosInscriptos": []
+    }
+  ]
+}

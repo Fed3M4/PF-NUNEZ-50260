@@ -1,0 +1,57 @@
+<div class="login row d-flex align-item-center justify-content-center" style="max-width: 100vw;">
+  <img
+    src="../../../../assets/discutiendo-video-curso.jpg"
+    alt=""
+    class="col-md-6 p-5"
+  />
+  <div class=" d-flex justify-content-center align-content-center col-md-6">
+      <form
+    [formGroup]="loginForm"
+    class="col-md-6"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="d-flex justify-content-center flex-column h-100">
+      <mat-form-field class="mb-3">
+        <mat-label>Ingresa tu correo</mat-label>
+        <input
+          matInput
+          placeholder="pat@example.com"
+          formControlName="email"
+          required
+        />
+        <mat-error>
+          {{
+            loginForm.get("email")?.errors | validationErrors
+          }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="mb-3">
+        <mat-label>Ingresa tu contraseña</mat-label>
+        <input
+          formControlName="password"
+          required
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          (keydown)="onSubmit()"
+        />
+        <mat-error>
+          {{loginForm.get('password')?.errors| validationErrors}}
+        </mat-error>
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon>{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Ingresar</button>
+    </div>
+  </form>
+  </div>
+
+</div>
