@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AlertService } from '../../../../../../core/services/alerts.service';
 import { CursosService } from '../../../../../../core/services/cursos.service';
-import { Curso } from '../../../../../../shared/models/interfaces';
+import { Course } from '../../../../../../shared/models/interfaces';
 
 @Component({
   selector: 'app-cursos-subscribe-form',
@@ -12,7 +12,7 @@ import { Curso } from '../../../../../../shared/models/interfaces';
 })
 export class CursosSubscribeFormComponent {
   coursesForm: FormGroup;
-  cursos?: Curso[];
+  cursos?: Course[];
 
   @Output()
   enrolledInCourse = new EventEmitter();

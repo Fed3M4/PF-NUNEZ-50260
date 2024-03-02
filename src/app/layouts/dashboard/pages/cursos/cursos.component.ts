@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Curso, User } from '../../../../shared/models/interfaces';
-import { LoadingService } from '../../../../core/services/loading.service';
+import { Course, User } from '../../../../shared/models/interfaces';
 import { CursosService } from '../../../../core/services/cursos.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CursosSubscribeFormComponent } from './pages/cursos-subscribe-form/cursos-subscribe-form.component';
@@ -12,10 +11,15 @@ import { UsersService } from '../../../../core/services/users.service';
   styleUrl: './cursos.component.scss'
 })
 export class CursosComponent implements OnInit {
-  cursos: Curso[] = []
+  cursos: Course[] = []
   usuarios: User[] = []
 
-  constructor(private cursosService: CursosService, private loadingService: LoadingService, private dialog: MatDialog, private usersService: UsersService) {}
+  constructor(
+    private cursosService: CursosService,
+    private dialog: MatDialog,
+    private usersService: UsersService
+    ) {}
+    
   ngOnInit(): void { 
     this.cursosService.getCursos().subscribe({
       next: (cursos) => this.cursos = cursos,
@@ -25,7 +29,7 @@ export class CursosComponent implements OnInit {
     })
    }
  
-   openInscriptionModal(curso: Curso): void {
+   openInscriptionModal(curso: Course): void {
      const dialogRef = this.dialog.open(CursosSubscribeFormComponent, {
        width: '500px',
        data: { curso: curso }

@@ -52,7 +52,7 @@
         <mat-form-field class="w-100">
           <mat-label>Elegí el curso...</mat-label>
           <mat-select formControlName="curso" >
-            <mat-option *ngFor="let curso of cursos" value="option">{{curso.name}}</mat-option>
+            <mat-option *ngFor="let curso of cursos" value={{curso.name}}>{{curso.name}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>

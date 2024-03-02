@@ -1,29 +1,9 @@
-export interface Profesor{
-    id: number;
-    firstName: string;
-    lastName: string;
-    phone: number;
-    email: string;
-    password: string;
-    curso: string;
-    isActive: boolean;
-}
-
-export interface Curso {
+export interface Course {
     id: number;
     name: string;
     description: string;
     img: string;
     alumnosInscriptos: string[];
-}
-
-export interface Alumnos {
-    id: number;
-    firstName: string;
-    lastName: string;
-    phone: number;
-    email: string;
-    password: string;
 }
 
 export interface User {
@@ -37,6 +17,14 @@ export interface User {
     curso: string;
     role: string;
     token: string
+}
+
+export interface Inscripcion {
+    id: string;
+    userId: string;
+    courseId: string;
+    user?: User;
+    course?: Course
 }
 
 export interface LoginData {

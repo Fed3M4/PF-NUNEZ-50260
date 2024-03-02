@@ -54,6 +54,14 @@
         >Cursos</a
       >
       <a
+      mat-list-item appTitulosTamanio class="nav-link"
+      routerLink="inscripciones"
+      #inscripcionesLink="routerLinkActive"
+      routerLinkActive
+      [activated]="inscripcionesLink.isActive"
+      >Inscripciones</a
+    >
+      <a
       appTitulosTamanio
       (click)="logout()"
       mat-list-item

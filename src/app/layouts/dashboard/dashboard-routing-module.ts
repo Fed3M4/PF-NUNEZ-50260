@@ -19,7 +19,8 @@ const routes: Routes = [
             loadChildren: () => import('./pages/profesores/profesores.module').then((m) => m.ProfesoresModule)},
             {path: 'cursos',
             loadChildren: () => import('./pages/cursos/cursos.module').then((m)=> m.CursosModule)},
-            
+            {path: 'inscripciones',
+            loadChildren: () => import('./pages/inscripciones/inscripciones.module').then((m)=> m.InscripcionesModule)},
         ]
     },
 ]

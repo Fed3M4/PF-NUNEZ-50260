@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from '../../shared/models/interfaces';
 import { selectAuthUser } from '../../core/store/auth/selectors';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,7 +24,8 @@ export class DashboardComponent implements OnInit {
     private loadingService: LoadingService,
     private alertService: AlertService,
     private authService: AuthService,
-    private store: Store
+    private store: Store,
+    private route: ActivatedRoute
   ) {
     this.authuser$ = this.store.select(selectAuthUser)
   }

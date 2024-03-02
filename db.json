@@ -32,7 +32,7 @@
       "email": "test@gmail.com",
       "password": "12345678",
       "isActive": true,
-      "curso": "ReactJS",
+      "curso": "",
       "role": "ADMIN",
       "token": "lsa78dlks122312"
     },
@@ -79,7 +79,7 @@
       "email": "andre@gmail.com",
       "phone": "12345678",
       "password": "carpincho",
-      "curso": "option",
+      "curso": "Angular",
       "isActive": true,
       "role": "Alumno",
       "token": "02kdjdlks1222f2"
@@ -91,7 +91,7 @@
       "email": "fefe@gmail.com",
       "phone": "132115461",
       "password": "fefe1234",
-      "curso": "option",
+      "curso": "Angular",
       "isActive": true,
       "role": "Alumno",
       "token": "l45sjd1ks122sl4"
@@ -103,7 +103,7 @@
       "email": "simba@gmail.com",
       "phone": "123812398",
       "password": "simba9384934",
-      "curso": "option",
+      "curso": "ReactJS",
       "isActive": true,
       "role": "Alumno",
       "token": "POzykdrYUA3fDZZ"
@@ -115,7 +115,7 @@
       "email": "ruben@gmail.com",
       "phone": "132132131",
       "password": "dmalkdalk",
-      "curso": "option",
+      "curso": "Matemáticas II",
       "isActive": true,
       "role": "Alumno",
       "token": "5Nu4DA15HrupMVs"
@@ -127,7 +127,7 @@
       "email": "gg@gmail.com",
       "phone": "13123123",
       "password": "kdaljdkjdljak",
-      "curso": "option",
+      "curso": "ReactJS",
       "isActive": true,
       "role": "Alumno",
       "token": "zd4WFix04f62w4y"
@@ -139,10 +139,34 @@
       "email": "iana@gmail.com",
       "phone": "7638762163821",
       "password": "dkjashdkjahskdh",
-      "curso": "option",
+      "curso": "Angular",
       "isActive": true,
       "role": "Alumno",
       "token": "KLZFYCFME9cEp5w"
+    },
+    {
+      "id": "7dfd",
+      "firstName": "Greta",
+      "lastName": "Nuñez",
+      "email": "pelititas@gmai.com",
+      "phone": "2134565712",
+      "password": "pelotitas34",
+      "curso": "ReactJS",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "iXEsyT8uoST9g8Q"
+    },
+    {
+      "id": "0d40",
+      "firstName": "Kayla",
+      "lastName": "Nuñez",
+      "email": "comida@gmail.com",
+      "phone": "123456653",
+      "password": "comidaymucha",
+      "curso": "ReactJS",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "ZPH7hhZqahoNnDo"
     }
   ],
   "courses": [
@@ -155,17 +179,84 @@
     },
     {
       "id": "2040",
-      "name": "'ReactJS'",
+      "name": "ReactJS",
       "description": "React (también llamada React. js o ReactJS) es una librería Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página. Es mantenido por Facebook y la comunidad de software libre.",
       "img": "../../../assets/react-javascript-js-framework-facebook-icon-1024x911-dnspa9ed.png",
       "alumnosInscriptos": []
     },
     {
       "id": "3030",
-      "name": "'Matemáticas II'",
+      "name": "Matemáticas II",
       "description": "'Se utiliza para resolver problemas, detectar patrones y comprobar hipótesis en diferentes áreas, desde la ingeniería hasta la medicina. De hecho, el desarrollo tecnológico actual sería inconcebible sin los aportes de las Matemáticas'",
       "img": "../../../assets/png-transparent-mathematics-mathematical-notation-symbol-number-computer-icons-mathematics-text-orange-logo.png",
       "alumnosInscriptos": []
+    }
+  ],
+  "inscriptions": [
+    {
+      "id": "asd245",
+      "userId": "1",
+      "courseId": "2030"
+    },
+    {
+      "id": "l3k56j",
+      "userId": "2",
+      "courseId": "2040"
+    },
+    {
+      "id": "p3o4ds",
+      "userId": "5",
+      "courseId": "2030"
+    },
+    {
+      "id": "df24t6",
+      "userId": "6",
+      "courseId": "2040"
+    },
+    {
+      "id": "mfg34t",
+      "userId": "7",
+      "courseId": "3030"
+    },
+    {
+      "id": "lde83q",
+      "userId": "8",
+      "courseId": "2030"
+    },
+    {
+      "id": "xke69f",
+      "userId": "b311",
+      "courseId": "2030"
+    },
+    {
+      "id": "ababa3",
+      "userId": "b0ff",
+      "courseId": "2040"
+    },
+    {
+      "id": "sec34t",
+      "userId": "86d5",
+      "courseId": "3030"
+    },
+    {
+      "id": "mb345h",
+      "userId": "1555",
+      "courseId": "2040"
+    },
+    {
+      "id": "iana34",
+      "userId": "dada",
+      "courseId": "2030"
+    },
+    {
+      "id": "gret45",
+      "userId": "7dfd",
+      "courseId": "2040"
+    },
+    {
+      "id": "ka11l4",
+      "userId": "0d40",
+      "courseId": "2040"
     }
   ]
 }

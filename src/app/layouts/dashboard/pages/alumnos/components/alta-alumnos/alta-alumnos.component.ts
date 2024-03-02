@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AlertService } from '../../../../../../core/services/alerts.service';
-import { Curso } from '../../../../../../shared/models/interfaces';
+import { Course } from '../../../../../../shared/models/interfaces';
 import { CursosService } from '../../../../../../core/services/cursos.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { CursosService } from '../../../../../../core/services/cursos.service';
 })
 export class AltaAlumnosComponent implements OnInit{
   studentForm: FormGroup;
-  cursos?: Curso[];
+  cursos?: Course[];
 
   @Output()
   userSubmitted = new EventEmitter();
