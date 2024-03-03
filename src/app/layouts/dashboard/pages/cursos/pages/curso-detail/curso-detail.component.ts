@@ -21,16 +21,12 @@ export class CursoDetailComponent implements OnInit {
     private usersService: UsersService,
     ) {
     this.course = this.data.curso;
-    console.log(this.course)
-
   }
   ngOnInit(): void {
   this.usersService.getAlumnos().subscribe({
     next: (users) => {
       this.users = users;
       this.filterUsersByCourse();
-      console.log(this.users);
-      console.log(this.filteredUsers)
     },
     error: (error) => {
       console.error('Error al obtener los usuarios:', error);

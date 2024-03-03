@@ -47,8 +47,6 @@ export class CursosComponent implements OnInit {
     const cursoEncontrado = this.cursos.find(curso => curso.name === data.curso);
     if (usuarioEncontrado && cursoEncontrado) {
       cursoEncontrado.alumnosInscriptos.push(usuarioEncontrado.firstName + " " + usuarioEncontrado.lastName);
-    } else {
-      console.log('Usuario no encontrado.');
     }
   }
 

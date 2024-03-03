@@ -33,7 +33,6 @@ export class AltaAlumnosComponent implements OnInit{
       next: (cursos) =>this.cursos = [...cursos]
       }
     )
-    console.log(this.cursos)
   }
   onSubmit():void {
     if(this.studentForm.invalid) {

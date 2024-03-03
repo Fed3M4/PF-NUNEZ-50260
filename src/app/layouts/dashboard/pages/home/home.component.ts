@@ -17,15 +17,12 @@ export class HomeComponent {
       setTimeout(() => {
         suscriber.next('Pantalla de inicio cargada'),
         suscriber.complete()
-      }, 2000);
+      }, 1000);
     })
 
     this.loadingService.setIsLoading(true);
 
     obs.subscribe({
-      next: (msg)=> {
-        console.log(msg)
-      },
       complete: () => this.loadingService.setIsLoading(false)
     })
   }

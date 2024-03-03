@@ -28,8 +28,4 @@ export class InscripcionesComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(InscripcionesActions.loadInscripciones())
   }
-  
-  deleteInscription(inscripcionAEliminar: string) {
-    console.log(inscripcionAEliminar)
-  }
 }

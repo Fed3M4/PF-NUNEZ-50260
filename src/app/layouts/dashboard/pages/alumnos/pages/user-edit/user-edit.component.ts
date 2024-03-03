@@ -23,7 +23,6 @@ export class UserEditComponent {
     private fb: FormBuilder,
     private userService: UsersService
   ) {
-    console.log(data.user.firstName);
     this.editForm = this.fb.group({
       firstName: this.fb.control(data.user.firstName, [Validators.required]),
       lastName: this.fb.control(data.user.lastName, [Validators.required]),
@@ -53,7 +52,6 @@ export class UserEditComponent {
         isActive: this.editForm.value.isActive,
       };
       this.userUpdated.emit(updatedUser);
-      console.log(updatedUser);
       this.dialogRef.close(updatedUser);
     }
   }
