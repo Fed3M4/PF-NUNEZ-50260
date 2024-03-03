@@ -7,6 +7,7 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { AlumnosRoutingModule } from './alumnos-routing.module';
 import { SharedModule } from '../../../../shared/shared.module';
 import { AlumnosComponent } from './alumnos.component';
+import { UserEditModule } from './pages/user-edit/user-edit.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AlumnosComponent } from './alumnos.component';
     SharedModule,
     AltaAlumnosModule,
     RouterModule,
-    AlumnosRoutingModule
+    AlumnosRoutingModule,
+    UserEditModule
   ],
   exports: [
     AlumnosComponent,

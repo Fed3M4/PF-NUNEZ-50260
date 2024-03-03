@@ -16,6 +16,7 @@ export class CursosService {
 
   getCursos() {
     this.loadingService.setIsLoading(true)
-    return this.httpClient.get<Course[]>(`${environment.apiURL}/courses`).pipe(delay(1000)).pipe(finalize(()=> this.loadingService.setIsLoading(false)))
+    return this.httpClient.get<Course[]>(`${environment.apiURL}/courses`)
+      .pipe(delay(1000)).pipe(finalize(()=> this.loadingService.setIsLoading(false)))
   }
 }

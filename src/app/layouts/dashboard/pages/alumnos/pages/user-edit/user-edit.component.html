@@ -1,0 +1,55 @@
+<div class="modal-content d-flex justify-content-center align-items-center p-5">
+    <h1>Editar usuario</h1>
+
+    <form class="container text-center" [formGroup]="editForm" (ngSubmit)="onSubmit() ">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <mat-label for="firstName">Nombre</mat-label>
+                    <input id="firstName" matInput formControlName="firstName">
+                </mat-form-field>                
+            </div>
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <mat-label for="lastName">Apellido</mat-label>
+                    <input id="lastName" matInput formControlName="lastName">
+                </mat-form-field>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <mat-label for="email">Email</mat-label>
+                    <input id="email" matInput formControlName="email" />
+                  </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <mat-label for="phone">Telefono</mat-label>
+                    <input id="phone" matInput formControlName="phone" />
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field class="w-100" autocomplete="on">
+                    <mat-label for="cursoSelect">Curso</mat-label>
+                    <mat-select id="cursoSelect" formControlName="curso">
+                        <mat-option *ngFor="let curso of cursos" value={{curso}}>{{curso}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="w-100" autocomplete="on">
+                    <mat-label for="activoSelect">¿Activo?</mat-label>
+                    <mat-select id="activoSelect" formControlName="isActive">
+                        <mat-option *ngFor="let isActive of activo" [value]="isActive === 'SI' ? true : false">{{isActive}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+      <!-- Agrega aquí más campos según las propiedades de tu interfaz User -->
+      <button mat-raised-button color="primary" type="submit" [disabled]="editForm.invalid">Save</button>
+      <button mat-raised-button color="warn" type="button" (click)="onClose()">Cancel</button>
+    </form>
+</div>

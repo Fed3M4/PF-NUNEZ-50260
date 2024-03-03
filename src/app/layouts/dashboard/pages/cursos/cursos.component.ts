@@ -4,6 +4,7 @@ import { CursosService } from '../../../../core/services/cursos.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CursosSubscribeFormComponent } from './pages/cursos-subscribe-form/cursos-subscribe-form.component';
 import { UsersService } from '../../../../core/services/users.service';
+import { CursoDetailComponent } from './pages/curso-detail/curso-detail.component';
 
 @Component({
   selector: 'app-cursos',
@@ -40,16 +41,21 @@ export class CursosComponent implements OnInit {
     });
    }
    onEnrolledInCourse(data: any): void {
-    console.log(data)
     const usuarioEncontrado = this.usuarios.find(usuario =>
       usuario.email === data.email && usuario.password === data.password
     );
     const cursoEncontrado = this.cursos.find(curso => curso.name === data.curso);
     if (usuarioEncontrado && cursoEncontrado) {
       cursoEncontrado.alumnosInscriptos.push(usuarioEncontrado.firstName + " " + usuarioEncontrado.lastName);
-      console.log(this.cursos)
     } else {
       console.log('Usuario no encontrado.');
     }
+  }
+
+  openCursosDetail(curso: Course): any {
+    const dialogRef = this.dialog.open(CursoDetailComponent, {
+      width: '75vw',
+      data: { curso: curso }
+    });
   }
 }

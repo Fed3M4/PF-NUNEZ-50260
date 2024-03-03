@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { User } from '../../../../shared/models/interfaces';
 import { UsersService } from '../../../../core/services/users.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-profesores',
@@ -8,18 +9,28 @@ import { UsersService } from '../../../../core/services/users.service';
   styleUrl: './profesores.component.scss'
 })
 
-export class ProfesoresComponent implements OnInit {
+export class ProfesoresComponent implements OnInit, OnDestroy {
   dataSource: User[] = [];
+  private unsubscribe$ = new Subject<void>();
 
   constructor(private usersService: UsersService) {}
+  
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
   ngOnInit(): void {
     this.cargarPantalla()
   }
 
   cargarPantalla(): void {
-    this.usersService.getProfesores().subscribe({
-      next: (profesores) => this.dataSource = profesores,
-    })
+    this.usersService.getProfesores()
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe({
+        next: (profesores) => this.dataSource = profesores,
+      });
+
   }
 
   displayedColumns: string[] = ['id', 'fullName', 'phone', 'email', 'curso', 'disponible'];

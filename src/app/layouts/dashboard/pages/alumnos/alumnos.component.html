@@ -1,4 +1,4 @@
-<div class="p-1" style="max-width: 95vw;">
+<div class="p-1" style="max-width: 95vw">
   <button
     class="mb-4 mr-3"
     mat-raised-button
@@ -13,9 +13,8 @@
       mat-table
       [dataSource]="dataSource"
       class="mat-elevation-z8"
-      style="max-width: 100%;"
+      style="max-width: 100%"
       [appColorearUltimoAgregado]="colorearTabla"
-
     >
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -41,12 +40,15 @@
         <th mat-header-cell *matHeaderCellDef>Eliminar</th>
         <td mat-cell *matCellDef="let alumno">
           <button
-          [routerLink]="alumno.id"
-          color="accent"
           mat-icon-button
+          color="primary"
+          (click)="openEditUserModal(alumno)"
         >
-          <mat-icon>visibility</mat-icon>
+          <mat-icon>edit</mat-icon>
         </button>
+          <button [routerLink]="alumno.id" color="accent" mat-icon-button>
+            <mat-icon>visibility</mat-icon>
+          </button>
           <button
             (click)="eliminarAlumnos(alumno)"
             mat-icon-button
@@ -63,9 +65,10 @@
   </div>
 </div>
 <mat-paginator
-              (page)="onPage($event)"
-              [length]="totalItems"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page">
+  (page)="onPage($event)"
+  [length]="totalItems"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page"
+>
 </mat-paginator>

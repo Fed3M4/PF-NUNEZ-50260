@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { User } from '../../../../shared/models/interfaces';
 import { MatDialog } from '@angular/material/dialog';
 import { AltaAlumnosComponent } from './components/alta-alumnos/alta-alumnos.component';
 import { UsersService } from '../../../../core/services/users.service';
-import { LoadingService } from '../../../../core/services/loading.service';
 import { AlertService } from '../../../../core/services/alerts.service';
 import { PageEvent } from '@angular/material/paginator';
+import { UserEditComponent } from './pages/user-edit/user-edit.component';
 
 @Component({
   selector: 'app-alumnos',
@@ -24,7 +24,6 @@ export class AlumnosComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private dialog: MatDialog,
-    private loadingService: LoadingService,
     private alertService: AlertService
   ) {}
   ngOnInit(): void {
@@ -32,13 +31,9 @@ export class AlumnosComponent implements OnInit {
   }
 
   cargarPantalla(): void {
-    // this.usersService.getAlumnos().subscribe({
-    //   next: (alumnos) => (this.dataSource = alumnos),
-    // });
     this.usersService.paginate(this.currentPage, 5).subscribe({
       next: (value) => {
         const paginationResult = value;
-        console.log(paginationResult)
         this.totalItems = paginationResult.items;
         this.dataSource= paginationResult.data
       }
@@ -58,14 +53,12 @@ export class AlumnosComponent implements OnInit {
 
   eliminarAlumnos(element: User): void {
     if(confirm('¿Estas seguro?')){
-      this.loadingService.setIsLoading(true)
       this.usersService.deleteUser(element.id).subscribe({
         next: () => {
           this.usersService.getAlumnos().subscribe({
             next: (alumnos) => {
               this.dataSource = [...alumnos];
             },
-            complete: () => this.loadingService.setIsLoading(false),
             error: () => this.alertService.showError('Hubo un error al cargar los usuarios')
           })
         },
@@ -83,21 +76,40 @@ export class AlumnosComponent implements OnInit {
       this.usersService
         .createUser({ ...newUser, isActive: true, role: 'Alumno' })
         .subscribe({
-          next: () => {
-            this.usersService.getAlumnos().subscribe({
-              next: (alumnos) => {
-                this.dataSource = alumnos;
-                this.colorearTabla = true;
-              },
-              error: (error) => {
-                this.alertService.showError(`Error al obtener los alumnos:${error}`);
-              }
-            });
+          next: (createdUser) => {
+            this.dataSource.push(createdUser);
+            this.totalItems++;
+            const totalPages = Math.ceil(this.totalItems / this.pageSize);
+            if (totalPages > this.currentPage) {
+              this.currentPage = totalPages;
+            }
           },
           error: (error) => {
             console.error(`Error al crear el usuario: ${error}`);
           }
         });
     });
+  }
+  openEditUserModal(element: User): void {
+    this.usersService.getUserByID(element.id).subscribe(currentUser => {
+      const dialogRef = this.dialog.open(UserEditComponent, {
+        width: '75vw',
+        data: { user: currentUser }
+      });
+      dialogRef.componentInstance.userUpdated.subscribe((userUpdate: User) => {
+        if(!!userUpdate.id) {
+          this.usersService.updateUser(userUpdate.id, userUpdate).subscribe({
+            next: (userUpdate) => {
+              const indice = this.dataSource.findIndex(objeto => objeto.id === userUpdate.id);
+              if(indice !== -1){
+                this.dataSource[indice] = userUpdate
+                this.cargarPantalla()
+              }
+            }
+          })
+        }
+      })
+    });
+    
   }
 }

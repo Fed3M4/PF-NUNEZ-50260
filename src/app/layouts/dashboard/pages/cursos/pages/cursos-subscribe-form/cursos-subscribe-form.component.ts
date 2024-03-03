@@ -36,7 +36,6 @@ export class CursosSubscribeFormComponent {
     this.cursosService.getCursos().subscribe({
       next: (cursos) => (this.cursos = [...cursos]),
     });
-    console.log(this.cursos);
   }
   onSubmit(): void {
     if (this.coursesForm.invalid) {

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { adminGuard } from "../../core/guards/admin.guard";
+import { profesorGuard } from "../../core/guards/profesor.guard";
 
 const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -15,11 +16,11 @@ const routes: Routes = [
             loadChildren: () => import('./pages/alumnos/alumnos.module').then((m)=> m.AlumnosModule)},
             {path: 'nosotros',
             loadChildren: () => import('./pages/nosotros/nosotros.module').then((m)=> m.NosotrosModule)},
-            {path: 'profesores', canActivate: [adminGuard],
+            {path: 'profesores', canActivate: [adminGuard, profesorGuard],
             loadChildren: () => import('./pages/profesores/profesores.module').then((m) => m.ProfesoresModule)},
             {path: 'cursos',
             loadChildren: () => import('./pages/cursos/cursos.module').then((m)=> m.CursosModule)},
-            {path: 'inscripciones',
+            {path: 'inscripciones', canActivate: [adminGuard],
             loadChildren: () => import('./pages/inscripciones/inscripciones.module').then((m)=> m.InscripcionesModule)},
         ]
     },

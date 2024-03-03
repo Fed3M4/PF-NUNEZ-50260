@@ -29,7 +29,9 @@ export class UsersService {
 
   getAllUsers() {
     this.loadingService.setIsLoading(true)
-    return this.httpClient.get<User[]>(`${environment.apiURL}/users`).pipe(delay(1000)).pipe(
+    return this.httpClient.get<User[]>(`${environment.apiURL}/users`).pipe(delay(1000))
+    .pipe(
+      delay(1000),
       catchError((error) => {
         this.alertService.showError(`Error al cargar los usuarios`);
         return of(error);
@@ -67,32 +69,45 @@ export class UsersService {
   }
 
   paginate(page: number, perPage?: number) {
-    return this.httpClient.get<Pagination<User>>(`${environment.apiURL}/users?role=Alumno&_page=${page}&_per_page=${perPage}`)
+    this.loadingService.setIsLoading(true)
+    return this.httpClient.get<Pagination<User>>(
+      `${environment.apiURL}/users?role=Alumno&_page=${page}&_per_page=${perPage}`
+      )
+      .pipe(
+        delay(1000),
+        finalize(() => this.loadingService.setIsLoading(false))
+        )
   }
 
   createUser(payload: User) {
+    this.loadingService.setIsLoading(true)
     return this.httpClient
       .post<User[]>(`${environment.apiURL}/users`, {...payload, token: this.generateString(15)})
       .pipe(
+        delay(1000),
         catchError((error) => {
           this.alertService.showError(`Error al crear usuario`);
           return of(error);
-        })
+        }),
+        finalize(() => this.loadingService.setIsLoading(false))
       );
   }
 
   deleteUser(userID: string): Observable<User[]> {
+    this.loadingService.setIsLoading(true)
     return this.httpClient
       .delete<User[]>(`${environment.apiURL}/users/${userID}`)
       .pipe(
+        delay(1000),
         catchError((error) => {
           this.alertService.showError(`Error al eliminar usuario`);
           return of(error);
-        })
+        }),
+        finalize(() => this.loadingService.setIsLoading(false))
       );
   }
 
-  getUserByID(id: number): Observable<User> {
+  getUserByID(id: string): Observable<User> {
     this.loadingService.setIsLoading(true)
     return this.httpClient.get<User>(`${environment.apiURL}/users/${id}`)
     .pipe(delay(1000))
@@ -103,5 +118,18 @@ export class UsersService {
       }),
       finalize(()=> this.loadingService.setIsLoading(false))
     );
+  }
+
+  updateUser(userID: string, updatedUserData: User): Observable<User> {
+    this.loadingService.setIsLoading(true);
+    return this.httpClient.put<User>(`${environment.apiURL}/users/${userID}`, updatedUserData)
+        .pipe(
+            delay(1000),
+            catchError((error) => {
+                this.alertService.showError(`Error al actualizar usuario`);
+                return of(error);
+            }),
+            finalize(() => this.loadingService.setIsLoading(false))
+        );
   }
 }

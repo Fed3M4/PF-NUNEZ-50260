@@ -13,6 +13,7 @@ import { CursosService } from '../../../../../../core/services/cursos.service';
 export class AltaAlumnosComponent implements OnInit{
   studentForm: FormGroup;
   cursos?: Course[];
+  
 
   @Output()
   userSubmitted = new EventEmitter();

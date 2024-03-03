@@ -8,7 +8,7 @@
       "email": "leandro@gmail.com",
       "password": "racing2023",
       "isActive": true,
-      "curso": "Angular",
+      "curso": "ReactJS",
       "role": "Alumno",
       "token": "lsakjdlks122312"
     },
@@ -97,16 +97,16 @@
       "token": "l45sjd1ks122sl4"
     },
     {
-      "id": "b0ff",
-      "firstName": "Raul",
-      "lastName": "Alvarez",
-      "email": "simba@gmail.com",
-      "phone": "123812398",
-      "password": "simba9384934",
-      "curso": "ReactJS",
+      "id": "2db4",
+      "firstName": "Cartel",
+      "lastName": "Nuñez",
+      "email": "cartel@gmail.com",
+      "phone": "2345112355",
+      "password": "huesito12134",
+      "curso": "Angular",
       "isActive": true,
       "role": "Alumno",
-      "token": "POzykdrYUA3fDZZ"
+      "token": "x1YngM0UBZQcOtI"
     },
     {
       "id": "86d5",
@@ -167,6 +167,18 @@
       "isActive": true,
       "role": "Alumno",
       "token": "ZPH7hhZqahoNnDo"
+    },
+    {
+      "id": "b0ff",
+      "firstName": "Raul",
+      "lastName": "Alvarez",
+      "email": "simba@gmail.com",
+      "phone": "123812398",
+      "password": "simba9384934",
+      "curso": "ReactJS",
+      "isActive": true,
+      "role": "Alumno",
+      "token": "POzykdrYUA3fDZZ"
     }
   ],
   "courses": [
