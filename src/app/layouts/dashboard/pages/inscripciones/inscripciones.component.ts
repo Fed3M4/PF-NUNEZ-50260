@@ -34,8 +34,6 @@ export class InscripcionesComponent implements OnInit {
   }
   
   deleteInscription(inscripcionAEliminarID: string) {
-    // this.inscripcionesService.deleteUser(inscripcionAEliminarID)
-    // this.store.dispatch(InscripcionesActions.loadInscripciones())
     if(confirm('¿Estas seguro?')){
       this.inscripcionesService.deleteUser(inscripcionAEliminarID).subscribe({
         next: () => {
