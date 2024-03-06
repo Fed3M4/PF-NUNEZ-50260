@@ -11,10 +11,8 @@ export class InscripcionesEffects {
 
   loadInscripciones$ = createEffect(() => {
     return this.actions$.pipe(
-      //filtramos las accions que nos interesan
       ofType(InscripcionesActions.loadInscripciones),
       concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
         this.inscripcionesService.getInscriptions().pipe(
           map(data => InscripcionesActions.loadInscripcionesSuccess({ data })),
           catchError(error => of(InscripcionesActions.loadInscripcionesFailure({ error }))))
